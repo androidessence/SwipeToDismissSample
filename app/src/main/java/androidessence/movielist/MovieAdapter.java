@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,6 +40,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     public void remove(int position) {
         mMovies.remove(position);
         notifyItemRemoved(position);
+    }
+
+    public void swap(int firstPosition, int secondPosition){
+        Collections.swap(mMovies, firstPosition, secondPosition);
+        notifyItemMoved(firstPosition, secondPosition);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

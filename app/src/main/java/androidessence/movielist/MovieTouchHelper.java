@@ -16,7 +16,8 @@ public class MovieTouchHelper extends ItemTouchHelper.SimpleCallback {
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-        return false;
+        mMovieAdapter.swap(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+        return true;
     }
 
     @Override
